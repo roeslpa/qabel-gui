@@ -1,10 +1,10 @@
 # Qabel documentation
 For the documentation take a look at the [documentation](http://qabel.github.io/docs/).
 
-qabel-desktop
+qabel-gui
 =============
 
-Desktop Frontend of Qabel
+Desktop GUI Frontend Prototype of Qabel
 
 ## building source
 
@@ -20,5 +20,5 @@ Desktop Frontend of Qabel
 0. run (example with helloworld-module)
 
    ```
-   java -Djava.library.path=../qabel-core -cp "../qabel-helloworld-module/build/libs/qabel-helloworld-module-0.1.jar:../qabel-desktop/build/libs/qabel-desktop-0.1.jar" de.qabel.desktop.QblMain -module qabel-helloworld-module/build/libs/qabel-helloworld-module-0.1.jar:de.qabel.helloworld.QblHelloWorldModule
+   java -Djava.library.path=../qabel-core -cp "../qabel-helloworld-module/build/libs/qabel-helloworld-module-0.1.jar:../qabel-gui/build/libs/qabel-gui-0.1.jar" de.qabel.gui.QblMain -module qabel-helloworld-module/build/libs/qabel-helloworld-module-0.1.jar:de.qabel.helloworld.QblHelloWorldModule
    ```
