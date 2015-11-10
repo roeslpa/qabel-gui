@@ -1,0 +1,40 @@
+apply plugin: 'java'
+apply plugin: 'application'
+apply plugin: 'eclipse'
+
+mainClassName = "de.qabel.desktop.QblMain"
+version = '0.1'
+
+repositories {
+    mavenCentral()
+}
+
+jar.doFirst{
+	manifest {
+		attributes 'Implementation-Title': 'Qabel Core', 'Implementation-Version': version
+		attributes 'Main-Class': 'de.qabel.desktop.QblMain'
+	  attributes 'Class-Path': configurations.runtime.collect { it.getName() }.join(' ')
+	}
+}
+
+dependencies {
+    testCompile "junit:junit:4.11"
+    compile 'commons-cli:commons-cli:1.2'
+		compile project(":qabel-core")
+		runtime fileTree(dir: 'libs', include: '*.jar')
+}
+
+task copyToLib(type: Copy) {
+  	from configurations.runtime
+    into "$buildDir/libs"  
+}
+
+classes {   
+	 doLast {
+        copyToLib.execute()
+    }
+}
+
+task wrapper(type: Wrapper) {
+    gradleVersion = '2.2.1'
+}
