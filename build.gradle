@@ -2,7 +2,7 @@ apply plugin: 'java'
 apply plugin: 'application'
 apply plugin: 'eclipse'
 
-mainClassName = "de.qabel.desktop.QblMain"
+mainClassName = "de.qabel.gui.QblMain"
 version = '0.1'
 
 repositories {
@@ -12,7 +12,7 @@ repositories {
 jar.doFirst{
 	manifest {
 		attributes 'Implementation-Title': 'Qabel Core', 'Implementation-Version': version
-		attributes 'Main-Class': 'de.qabel.desktop.QblMain'
+		attributes 'Main-Class': 'de.qabel.gui.QblMain'
 	  attributes 'Class-Path': configurations.runtime.collect { it.getName() }.join(' ')
 	}
 }
